@@ -32,3 +32,7 @@ class Choice(models.Model):  # 默认表名是polls_choice
 
     def __str__(self):
         return self.choice_text
+
+
+class MyModel(models.Model):
+    upload = models.FileField(upload_to='uploads/%Y/%m/%d/')
