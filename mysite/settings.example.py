@@ -10,11 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-"""
-settings.py文件，没有这个文件是无法运行Django项目的，但是settings中又可能包含很多关键的不可泄露的部分，还有数据库的IP/Port、用户名和密码，邮件发送端的用户名和密码，这些都是绝对不能泄露的。
-复制settings文件，并重命名为settings.example.py文件，放在同一目录里，把敏感信息、密码等修改或删除。使用者看到这个文件名，自然会明白它的作用。
-"""
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

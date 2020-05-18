@@ -124,6 +124,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.gitignore
 .idea/
 
+.gitignore
+requirements.txt
+mysite/settings.py
