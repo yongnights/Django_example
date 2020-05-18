@@ -5,16 +5,16 @@
 ## 简单的使用方法：
 
 
-创建虚拟环境
-使用pip安装第三方依赖
-修改settings.example.py文件为settings.py
-运行migrate命令，创建数据库和数据表(python manage.py migrate)
-运行python manage.py runserver启动服务器
+- 创建虚拟环境
+- 使用pip安装第三方依赖
+- 修改settings.example.py文件为settings.py
+- 运行migrate命令，创建数据库和数据表(python manage.py migrate)
+- 运行python manage.py runserver启动服务器
 
 
 路由设置：
 
-
+```
 from django.contrib import admin
 from django.urls import path, include
 from login import views
@@ -28,7 +28,7 @@ urlpatterns = [
     path('confirm/', views.user_confirm),
     path('captcha/', include('captcha.urls'))   # 增加这一行
 ]
-
+```
 # 说明
 这个项目还有俩app
 - login 是一个简单的用户注册，登陆功能
@@ -44,7 +44,6 @@ urlpatterns = [
 
 默认后台地址：
 ```
+创建后台用户：python manage.py createsuperuser
 http://127.0.0.1:8000/admin
-用户名:admin
-密码:123456
 ```
