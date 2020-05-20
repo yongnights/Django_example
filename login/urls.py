@@ -31,6 +31,7 @@ from . import views
 app_name = 'login'
 
 urlpatterns = [
+    path('', views.index, name='index'), # 默认显示首页，跟下面的index指向同一个视图函数
     path('index/', views.index, name='index'),
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
