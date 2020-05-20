@@ -27,7 +27,14 @@
 
             <h3 class="text-center">欢迎登录</h3>
 
-            {#            {{ login_form }}#}
+            {#  {{ login_form }}#}
+
+            {% comment %}
+            这一段是多行注释
+            这一段是多行注释
+            这一段是多行注释
+            {% endcomment %}
+
             <div class="form-group">
                 {{ login_form.username.label_tag }}
                 {{ login_form.username }}

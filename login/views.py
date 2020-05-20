@@ -18,11 +18,11 @@ def index(request):
 
 
 def login(request):
-    login_form = forms.UserForm(request.POST)
     if request.session.get('is_login', None):
         return render(request, 'login/login.html', locals())
     if request.method == 'POST':
-        # login_form = forms.UserForm(request.POST)
+        # 接受request.POST参数构造form类的实例
+        login_form = forms.UserForm(request.POST)
         message = '请检查填写的内容!'
         if login_form.is_valid():
             username = login_form.cleaned_data.get('username')
@@ -44,7 +44,9 @@ def login(request):
                 return render(request, 'login/login.html', locals())
         else:
             return render(request, 'login/login.html', locals())
-    # login_form = forms.UserForm(request.POST)
+    else:
+        # 如果是通过GET方法请求数据，返回一个空的表单
+        login_form = forms.UserForm()
     return render(request, 'login/login.html',locals())
 
 
@@ -86,7 +88,8 @@ def register(request):
             return redirect('login:login')
         else:
             return render(request, 'login/register.html', locals())
-    register_form = forms.RegisterForm()
+    else:
+        register_form = forms.RegisterForm()
     return render(request, 'login/register.html',locals())
 
 

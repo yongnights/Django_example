@@ -29,7 +29,37 @@ SECRET_KEY = 'p75@ah4z-ny2fhkt)g2))p#(pjh9k96cuqf(o^3j0v8kuy2&)i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ADMINS = []
+# 默认值：[]（空列表）
+"""
+所有获得代码错误通知的人的邮件地址列表。
+当DEBUG=False，并且一个视图引发了异常时,Django将会给这个列表里的人发一封含有完整异常信息的电子邮件。
+列表中的每个项目都应该是（全名，电子邮件地址）的元组。例如：
+[('John', 'john@example.com'), ('Mary', 'mary@example.com')]
+"""
+
 ALLOWED_HOSTS = []
+# 默认值：[]（空列表）
+"""
+配置项列表中包含的是Django站点可以为之提供服务的主机/域名。
+也就是哪些主机或IP能够访问Django服务器！列表里的所有元素是共同存在的关系，不纯在冲突、优先级和排斥的关系。
+列表中的值可以是localhost、www.example.com或者.example.com形式的域名。
+也可以是IP地址，比如：137.2.4.1、192.168.1.1、0.0.0.0、127.0.0.1
+还可以是通配符'*'，表示所有外部主机都可以访问Django。但这种情况具有安全风险，在线上环境不要使用。
+对于0.0.0.0，表示局域网内的主机都可以访问Django。
+当DEBUG为True和ALLOWED_HOSTS为空时，默认相当于配置：['localhost'， '127.0.0.1'， '[:: 1]']。
+
+一般设置成nginx配置文件中的server_name的网址或者ip
+"""
+
+APPEND_SLASH = True
+# 默认值：True
+"""
+当设定为True时，如果请求的URL没有匹配到URLconf里面的任何一条URL路由设置，并且没有以/（斜杠）结束，该请求将重定向到以请求URL加/的URL地址。
+需要注意的是重定向有可能导致POST提交的数据丢失。
+通俗的解释就是，如果你在写url时忘记了在最后添加一个斜杠，Django会默认帮你加上！请尽量保持默认值！
+APPEND_SLASH设置只有在安装了CommonMiddleware中间件时才会启用。
+"""
 
 # Application definition
 
@@ -62,8 +92,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +110,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# 默认值: {} (空的字典)
+"""
+该配置项包含Django项目使用的所有数据库的设置。这是一个嵌套字典。
+DATABASES设置必须配置一个default数据库，以及指定任意数量的其它数据库（可以没有）。
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
