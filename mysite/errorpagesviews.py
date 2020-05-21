@@ -24,16 +24,21 @@
 
 """
 
-from django.urls import path
+from django.shortcuts import render
 
-from . import views
 
-app_name = 'login'
+def bad_request(request, exception, template_name='errorpages/400.html'):
+    return render(request, template_name)
 
-urlpatterns = [
-    path('', views.index, name='index'), # 默认显示首页，跟下面的index指向同一个视图函数
-    path('index/', views.index, name='index'),
-    path('login/', views.login, name='login'),
-    path('register/', views.register, name='register'),
-    path('logout/', views.logout, name='logout'),
-]
+
+def permission_denied(request, exception, template_name='errorpages/403.html'):
+    return render(request, template_name)
+
+
+def page_not_found(request, exception, template_name='errorpages/404.html'):
+    return render(request, template_name)
+
+
+# 注意这里没有 exception 参数
+def server_error(request, template_name='errorpages/500.html'):
+    return render(request, template_name)

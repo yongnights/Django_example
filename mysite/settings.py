@@ -27,18 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p75@ah4z-ny2fhkt)g2))p#(pjh9k96cuqf(o^3j0v8kuy2&)i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ADMINS = []
-# 默认值：[]（空列表）
-"""
-所有获得代码错误通知的人的邮件地址列表。
-当DEBUG=False，并且一个视图引发了异常时,Django将会给这个列表里的人发一封含有完整异常信息的电子邮件。
-列表中的每个项目都应该是（全名，电子邮件地址）的元组。例如：
-[('John', 'john@example.com'), ('Mary', 'mary@example.com')]
-"""
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 # 默认值：[]（空列表）
 """
 配置项列表中包含的是Django站点可以为之提供服务的主机/域名。

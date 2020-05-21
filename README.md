@@ -48,3 +48,8 @@ http://127.0.0.1:8000/admin
 用户名:admin
 密码:123456
 ```
+
+关于静态文件
+1.关于debug模式后，还需要设置一下ALLOWED_HOSTS
+2.默认关闭debug后，静态页面无法访问，此时，测试使用的话可以使用如下命令：`python manage.py runserver --insecure`
+部署到服务器的话结合nginx使用
