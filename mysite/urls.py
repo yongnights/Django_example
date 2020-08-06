@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import errorpagesviews
 
 urlpatterns = [
+    path('', include('home.urls')),
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('login/', include('login.urls')),
     path('captcha/', include('captcha.urls')),
 ]
+
+# 增加的条目
+handler400 = errorpagesviews.bad_request
+handler403 = errorpagesviews.permission_denied
+handler404 = errorpagesviews.page_not_found
+handler500 = errorpagesviews.server_error

@@ -47,3 +47,5 @@ class RegisterForm(forms.Form):
     email = forms.EmailField(label="邮箱地址", widget=forms.EmailInput(attrs={'class': 'form-control'}))
     sex = forms.ChoiceField(label='性别', choices=gender)
     captcha = CaptchaField(label='验证码')
+
+
