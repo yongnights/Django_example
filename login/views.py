@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 
 # Create your views here.
 from django.shortcuts import redirect
 from . import models
 from . import forms
 import hashlib
+from django.views import View
 
 def hash_code(s,salt='mysite'):
     h = hashlib.sha256()
@@ -13,7 +14,7 @@ def hash_code(s,salt='mysite'):
     return h.hexdigest()
 
 def index(request):
-    pass
+    print("index")
     return render(request, 'login/index.html')
 
 

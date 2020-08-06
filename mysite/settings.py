@@ -27,9 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p75@ah4z-ny2fhkt)g2))p#(pjh9k96cuqf(o^3j0v8kuy2&)i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
 # 默认值：[]（空列表）
 """
 配置项列表中包含的是Django站点可以为之提供服务的主机/域名。
@@ -62,9 +62,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'polls.apps.PollsConfig',
     'login.apps.LoginConfig',
     'captcha',
+    'home.apps.HomeConfig',
 
 ]
 
@@ -162,3 +165,24 @@ EMAIL_HOST = 'smtp.sina.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'xxx@sina.com'
 EMAIL_HOST_PASSWORD = 'xxxxxxxxxxx'
+
+SITE_ID = 1
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'debug.log',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }

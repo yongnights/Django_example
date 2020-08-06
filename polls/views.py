@@ -4,9 +4,13 @@ from django.urls import reverse
 from django.views import generic
 
 from .models import Choice, Question
+import logging
 
+logger = logging.getLogger(__name__)
 
 class IndexView(generic.ListView):
+    # print("haha")
+    # logger.info('info message!')
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
     def get_queryset(self):
@@ -37,3 +41,4 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
